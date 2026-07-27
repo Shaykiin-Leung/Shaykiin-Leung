@@ -1,9 +1,19 @@
 <p align="center">
-  <img
-    src="./assets/frutiger-aero-workspace.png"
-    width="100%"
-    alt="A quiet retro-futuristic workspace overlooking the ocean"
-  />
+  <picture>
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="./assets/frutiger-aero-workspace-dark.png"
+    />
+    <source
+      media="(prefers-color-scheme: light)"
+      srcset="./assets/frutiger-aero-workspace.png"
+    />
+    <img
+      src="./assets/frutiger-aero-workspace.png"
+      width="100%"
+      alt="A quiet retro-futuristic workspace overlooking the ocean"
+    />
+  </picture>
 </p>
 
 <p align="center">
