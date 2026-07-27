@@ -34,15 +34,15 @@
 </p>
 
 <p align="center">
-  <a href="https://shaykiin-leung.github.io/">home</a>
+  <a href="https://shaykiin-leung.github.io/">index.html</a>
   &nbsp;&nbsp;·&nbsp;&nbsp;
-  <a href="https://github.com/Shaykiin-Leung?tab=repositories">projects</a>
+  <a href="https://github.com/Shaykiin-Leung?tab=repositories">projects/</a>
   &nbsp;&nbsp;·&nbsp;&nbsp;
-  <a href="https://github.com/Shaykiin-Leung">archive</a>
+  <a href="https://github.com/Shaykiin-Leung">github</a>
 </p>
 
 <br />
 
 <p align="center">
-  <sub>somewhere between nostalgia and tomorrow.</sub>
+  <sub>best viewed with curiosity.</sub>
 </p>
