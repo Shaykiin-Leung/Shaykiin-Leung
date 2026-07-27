@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Meditation</title>
+  <script>p5.disableFriendlyErrors = true;</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.3/p5.min.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0; overflow: hidden; background: #0a0a0f; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+<script>
+// === Config ===
+const CONFIG = {
+  pixelSize: 8,
+  gridCols: 0,  // set in setup
+  gridRows: 0,
+  spawnChance: 0.02,
+  gravity: 0.15,
+  maxVelocity: 6,
+};
+
+// === Palette ===
+const PALETTE = {
+  bg: '#0a0a0f',
+  pixel1: '#e8d5b7',   // warm cream
+  pixel2: '#58a6ff',   // cool blue
+  pixel3: '#79c0ff',   // lighter blue
+  accent: '#1f6feb',   // dark accent
+};
+
+// === State ===
+let pixels = [];
+let time = 0;
+
+// === Setup ===
+function setup() {
+  createCanvas(window.innerWidth, window.innerHeight);
+  pixelDensity(1);
+  colorMode(RGB);
+  
+  CONFIG.gridCols = ceil(width / CONFIG.pixelSize);
+  CONFIG.gridRows = ceil(height / CONFIG.pixelSize);
+  
+  // Spawn initial pixels
+  for (let i = 0; i < 20; i++) {
+    spawnPixel();
+  }
+}
+
+// === Draw ===
+function draw() {
+  background(PALETTE.bg);
+  time += 0.01;
+  
+  // Spawn new pixels randomly
+  if (random() < CONFIG.spawnChance) {
+    spawnPixel();
+  }
+  
+  // Update & display
+  for (let i = pixels.length - 1; i >= 0; i--) {
+    let p = pixels[i];
+    p.update();
+    p.display();
+    
+    if (p.y > height + 100) {
+      pixels.splice(i, 1);
+    }
+  }
+}
+
+// === Spawn Pixel ===
+function spawnPixel() {
+  let x = random(width);
+  let y = -CONFIG.pixelSize * 2;
+  let vx = random(-1, 1);
+  let vy = random(0, 2);
+  let col = random([PALETTE.pixel1, PALETTE.pixel2, PALETTE.pixel3]);
+  let size = CONFIG.pixelSize * random(1, 2.5);
+  
+  pixels.push(new Pixel(x, y, vx, vy, col, size));
+}
+
+// === Pixel Class ===
+class Pixel {
+  constructor(x, y, vx, vy, col, size) {
+    this.x = x;
+    this.y = y;
+    this.vx = vx;
+    this.vy = vy;
+    this.col = col;
+    this.size = size;
+    this.rot = random(TWO_PI);
+    this.rotSpeed = random(-0.02, 0.02);
+    this.life = 255;
+  }
+  
+  update() {
+    // Physics
+    this.vy += CONFIG.gravity;
+    this.vy = constrain(this.vy, -CONFIG.maxVelocity, CONFIG.maxVelocity);
+    
+    this.x += this.vx + sin(time * 0.5 + this.x * 0.01) * 0.5;
+    this.y += this.vy;
+    
+    this.rot += this.rotSpeed;
+    
+    // Fade
+    if (this.y > height * 0.8) {
+      this.life = map(this.y, height * 0.8, height + 100, 255, 0);
+    }
+  }
+  
+  display() {
+    push();
+    translate(this.x, this.y);
+    rotate(this.rot);
+    fill(this.col);
+    stroke(PALETTE.accent);
+    strokeWeight(0.5);
+    
+    // Pixelated square with slight rotation
+    rectMode(CENTER);
+    rect(0, 0, this.size, this.size);
+    
+    // Inner accent line
+    stroke(PALETTE.accent);
+    strokeWeight(1);
+    line(-this.size * 0.3, 0, this.size * 0.3, 0);
+    
+    pop();
+  }
+}
+
+// === Resize ===
+function windowResized() {
+  resizeCanvas(window.innerWidth, window.innerHeight);
+}
+
+// === Keyboard ===
+function keyPressed() {
+  if (key === 's' || key === 'S') saveCanvas('pixel-meditation', 'png');
+  if (key === 'r' || key === 'R') pixels = [];
+}
+</script>
+</body>
+</html>
