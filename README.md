@@ -1,15 +1,38 @@
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=32&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&width=400&lines=stay+quiet.;let+work+speak.;keep+learning.;move+on." />
+  <img
+    src="./assets/frutiger-aero-workspace.png"
+    width="100%"
+    alt="A quiet retro-futuristic workspace overlooking the ocean"
+  />
 </p>
 
----
-
 <p align="center">
-  <iframe src="https://github.com/Shaykiin-Leung/Shaykiin-Leung/raw/master/pixel-meditation.html" width="400" height="300" style="border: none; border-radius: 8px;"></iframe>
+  <picture>
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="https://readme-typing-svg.demolab.com?font=IBM+Plex+Mono&weight=500&size=28&duration=3000&pause=1000&color=52E0C4&center=true&vCenter=true&width=680&lines=stay+quiet.;let+work+speak.;keep+learning.;move+on."
+    />
+    <source
+      media="(prefers-color-scheme: light)"
+      srcset="https://readme-typing-svg.demolab.com?font=IBM+Plex+Mono&weight=500&size=28&duration=3000&pause=1000&color=197C78&center=true&vCenter=true&width=680&lines=stay+quiet.;let+work+speak.;keep+learning.;move+on."
+    />
+    <img
+      src="https://readme-typing-svg.demolab.com?font=IBM+Plex+Mono&weight=500&size=28&duration=3000&pause=1000&color=52E0C4&center=true&vCenter=true&width=680&lines=stay+quiet.;let+work+speak.;keep+learning.;move+on."
+      alt="stay quiet. let work speak. keep learning. move on."
+    />
+  </picture>
 </p>
 
----
+<p align="center">
+  <a href="https://shaykiin-leung.github.io/">home</a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="https://github.com/Shaykiin-Leung?tab=repositories">projects</a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="https://github.com/Shaykiin-Leung">archive</a>
+</p>
+
+<br />
 
 <p align="center">
-  <i>做事，不多说。</i>
+  <sub>somewhere between nostalgia and tomorrow.</sub>
 </p>
